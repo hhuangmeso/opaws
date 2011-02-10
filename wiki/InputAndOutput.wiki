@@ -1,19 +1,25 @@
-#summary Formats of input radar data and output analysis data are described here.
+#summary formats of input radar data and output analysis data
 
 = Input Radar Data =
 
-Radar data that are input to OPAWS can be in one of the following formats.
+Radar data that are input to OPAWS can be in one of the following two formats:  dorade sweep files or Forady NetCDF.
 
 *Dorade sweep files*
 
-At present, OPAWS can process NCAR Dorade (sweep) and NCAR EOL Foray (netcdf) radar data.
+developed by the National Center for Atmospheric Research (NCAR)
+DORADE radar-data format:  http://www.ral.ucar.edu/projects/titan/docs/radial_formats/DoradeDoc.pdf
+
+solo
+VORTEX, VORTEX2
+
+
 
 *Foray NetCDF*
 
+developed by NCAR
 
-DORADE radar-data format:  http://www.ral.ucar.edu/projects/titan/docs/radial_formats/DoradeDoc.pdf
 
-Foray:  http://www.eol.ucar.edu/Members/dennisf/foray2
+Foray:  http://www.eol.ucar.edu/Members/dennisf/foray
 
 
 = Output Analysis Data =
@@ -31,10 +37,7 @@ DART observations:  http://www.image.ucar.edu/DAReS/DART/DART_Observations.php#o
 
 Namelist parameters that control how OPAWS processes radar data are described on the "NamelistParameters" wiki.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+
 
 
   
