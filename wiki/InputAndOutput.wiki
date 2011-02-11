@@ -27,7 +27,7 @@ It outputs gridded data in either two-dimensions (on the PPI conical surface) or
 "Wind and Temperature Retrievals in the 17 May 1981 Arcadia, Oklahoma, Supercell: Ensemble Kalman Filter Experiments", Mon. Wea. Rev., August 2004, p. 1982.
 [http://journals.ametsoc.org/doi/pdf/10.1175/1520-0493%282004%29132%3C1982%3AWATRIT%3E2.0.CO%3B2]
 
-Data Assimilation Research Testbed (DART):  http://www.image.ucar.edu/DAReS/DART/
+[http://www.image.ucar.edu/DAReS/DART/ Data Assimilation Research Testbed (DART) ]
 
 DART observations:  http://www.image.ucar.edu/DAReS/DART/DART_Observations.php#obs_seq_overview
 
