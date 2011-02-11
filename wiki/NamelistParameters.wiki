@@ -1,9 +1,16 @@
-#summary The namelist parameters that control how OPAWS produces an objective analysis are described here.
+#summary parameters that control how OPAWS produces an objective analysis
+
+The UNIX command-line syntax for running the _x.oban_ objective-analysis program is
+
+*x.oban oban.nml*
+
+Note that _oban.nml_ is the example file name that will be used here.  Users are free to choose other file names.
+
+The _oban.nml_ file must include three sections:  _&parameters_ (general information about the desired objective analysis), _%fields_ (information specific to individual data fields), and a list of sweep-file names.  These sections of the _oban.nml_ file are described in more 
 
 = &parameters =
 
-how to run oban
-oban.nml, or call it what you want
+
 
 *Required Parameters*
 
