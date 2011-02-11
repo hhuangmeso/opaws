@@ -10,19 +10,18 @@ Radar data that are input to OPAWS can be in one of the following two formats:
 *Dorade sweep files*
 
 Developed by the National Center for Atmospheric Research (NCAR)
-DORADE radar-data format: http://www.ral.ucar.edu/projects/titan/docs/radial_formats/DoradeDoc.pdf
+[http://www.ral.ucar.edu/projects/titan/docs/radial_formats/DoradeDoc.pdf DORADE radar-data format]
 
   * Used by the NCAR SOLO editing program
   * Radar format for VORTEX, VORTEX2 radar data
 
 *Foray NetCDF*
 
-developed by NCAR EOL:  see Foray:  http://www.eol.ucar.edu/Members/dennisf/foray
-
+developed by NCAR EOL:  [http://www.eol.ucar.edu/Members/dennisf/foray see Foray]  
 
 = Output Analysis Data =
 
-It outputs gridded data in either two-dimensions (on the PPI conical surface) or three-dimensions in netcdf, Vis5d, and DART (Data Assimilation Research Testbed) formats.
+Data are outputted as gridded data in either two-dimensions (on the PPI conical surface) or three-dimensions in netcdf, Vis5d, and DART (Data Assimilation Research Testbed) formats.
 
 [http://journals.ametsoc.org/doi/pdf/10.1175/1520-0493%282004%29132%3C1982%3AWATRIT%3E2.0.CO%3B2 Wind and Temperature Retrievals in the 17 May 1981 Arcadia, Oklahoma, Supercell: Ensemble Kalman Filter Experiments, Mon. Wea. Rev., August 2004, p. 1982]
 
