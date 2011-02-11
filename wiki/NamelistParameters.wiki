@@ -8,13 +8,8 @@ Note that _oban.nml_ is the example file name that will be used here.  Users are
 
 The _oban.nml_ file must include three sections:  _&parameters_ (general information about the desired objective analysis), _%fields_ (information specific to individual data fields), and a list of sweep-file names.  These sections of the _oban.nml_ file are described in more 
 
-= &parameters =
+This example file does a Cressman 2D analysis
 
-
-
-*Required Parameters*
-
-*Optional Parameters*
 {{{
 &parameters
    nx = 70,                           ! no. of grid points in x direction
@@ -168,66 +163,4 @@ The _oban.nml_ file must include three sections:  _&parameters_ (general informa
 ./koun_sweep/swp.1030508220851.OSF_RVP7.0.14.0_PPI_v1
 ./koun_sweep/swp.1030508220909.OSF_RVP7.0.16.7_PPI_v1
 ./koun_sweep/swp.1030508220927.OSF_RVP7.0.19.5_PPI_v1
-
-= &fields =
-
-= sweep file list =
-
-= Example oban.nml file:  Cressman 2D analysis =
-
-&parameters
-   nx = 70,                           ! no. of grid points in x direction
-   ny = 70,                           ! no. of grid points in y direction
-                                      !
-   xmin = -80.0,                      ! coordinates of lower southwest corner (in km)
-   ymin = -80.0,                      !     of analysis grid relative to the 
-                                      !     origin given by glat, glon, galt
-                                      !
-   dx = 2.0,                          ! grid spacing in x direction (km)
-   dy = 2.0,                          ! grid spacing in y direction (km)
-                                      !
-   glon = -97.461945,                 ! longitude of grid origin (deg)
-   glat = 35.235832,                  ! latitude  of grid origin (deg)
-   galt = 0.373,                      ! altitude of grid origin (km MSL)
-
-   rlon = -97.461945,                 ! radar longitude (deg)
-   rlat = 35.235832,                  ! radar latitude (deg)
-   ralt = 0.373,                      ! radar altitude (km MSL)
-                                      ! 
-   sec_cor = -150,                    ! offset in seconds to correct each ray
-                                      !
-   output_prefix = 'sweep_cressman',  ! prefix name for output files
-                                      !
-   analysis_type   = 2,               ! Type of analysis
-                                      !   1 == 3D Cartesian
-                                      !   2 == 2D sweep-by-sweep
-   method = 1,                        ! Interpolation method:
-                                      !   1 == Cressman
-                                      !   2 == Barnes
-   hsp0 = 1.00,                       ! either Cressman horiz. radius of influence (km) or Barnes smoothing parameter (kappa, in km**2)
-                                      !
-   minrange = 10.0,                   ! minimum-range threshold (in km, data closer to radar are discarded)
-   mincount = 3,                      ! threshold for minimum number of data gates required
-                                      !   to produce an objectively-analyzed observation
-   minsum   = 0.1,                    ! threshold for minimum sum of weights required to produce
-                                      !   an objectively-analyzed observation
-                                      !
-   nfld = 2,                          ! number of data fields to be gridded
-                                      !
-   ncgen_command = 'ncgen',           ! path/executable for local "ncgen" command
-                                      !
-   radar_data_format = 1,             ! radar data format: 1=dorade sweep files, 2=netcdf (FORAY)
-                                      !
-   nswp = -1                          ! controls file I/O:  nswp = -1 ==> read all files in directory at bottom of input file
-                                      !                     nswp >  0 ==> read nswp # of filenames at bottom of input file
-/
-&fields
-   fieldnames  = 'DZ', 'VU',          ! Names of the fields to be read from the dorade/netcdf radar-data files
-   fill_flag   =    1,    0,          ! fill missing field values with a specified value? (0=no, 1=yes)
-   fill_value  =  0.0,  0.0,          ! replacement value, if fill_flag==1
-   error       =  5.0,  2.0,          ! Observational error standard deviation for the DART observations
-/
-======= DO NOT EDIT THIS LINE -> MUST START WITH 6 "=" for the oban formatted I/O to find the start of input files
-'./koun_sweep/swp.*'
 }}}
-= Another example oban.nml file =
