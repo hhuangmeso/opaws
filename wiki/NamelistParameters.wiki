@@ -15,7 +15,7 @@ The _oban.nml_ file must include three sections:  _&parameters_ (general informa
 *Required Parameters*
 
 *Optional Parameters*
-
+{{{
 &parameters
    nx = 70,                           ! no. of grid points in x direction
    ny = 70,                           ! no. of grid points in y direction
@@ -229,5 +229,5 @@ The _oban.nml_ file must include three sections:  _&parameters_ (general informa
 /
 ======= DO NOT EDIT THIS LINE -> MUST START WITH 6 "=" for the oban formatted I/O to find the start of input files
 './koun_sweep/swp.*'
-
+}}}
 = Another example oban.nml file =
