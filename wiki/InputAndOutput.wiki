@@ -2,10 +2,7 @@
 
 = Input Radar Data =
 
-Radar data that are input to OPAWS can be in one of the following two formats:  
-
-  * Dorade sweep files
-  * Foray NetCDF (Foray-1 version).
+Radar data that are input to OPAWS can be in one of the following two formats:  Dorade sweep files or Foray NetCDF (Foray-1 version).
 
 *Dorade sweep files*
 
@@ -15,7 +12,7 @@ Radar data that are input to OPAWS can be in one of the following two formats:
 
 Detailed information is provided in the [http://www.ral.ucar.edu/projects/titan/docs/radial_formats/DoradeDoc.pdf DORADE documentation].
 
-*Foray NetCDF*
+*Foray-1 NetCDF*
 
  * Developed by the National Center for Atmospheric Research (NCAR)
  * Designated at the format for TIMREX radar data
