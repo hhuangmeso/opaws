@@ -16,7 +16,7 @@ The _oban.nml_ file must include three sections:  _&parameters_ (general informa
 
 = Example 1 =
 
-This example file does a Cressman 3D analysis of dorade sweep files.  Sweep-file names are specified explicitly.
+This example _oban.nml_ file does a Cressman 3D analysis of dorade sweep files.  Sweep-file names are specified explicitly.
 
 {{{
 &parameters
@@ -35,7 +35,7 @@ This example file does a Cressman 3D analysis of dorade sweep files.  Sweep-file
    glon = -97.4619,                   ! longitude of grid origin (deg)
    glat = 35.2360,                    ! latitude  of grid origin (deg)
    galt = 0.380,                      ! altitude of grid origin (km MSL)
-
+                                      !
    rlon = -97.4619,                   ! radar longitude (deg)
    rlat = 35.2360,                    ! radar latitude (deg)
    ralt = 0.380,                      ! radar altitude (km MSL)
@@ -100,7 +100,7 @@ This example file does a Cressman 3D analysis of dorade sweep files.  Sweep-file
 
 = Example 2 =
 
-This example file does a Barnes 2-pass, 2-dimensional analysis.  Sweep-file names are specified by path name.
+This example file does a Barnes 2-pass, 2-dimensional analysis of Foray-NetCDF radar data.  Sweep-file names are specified by path name.
 
 {{{
 &parameters
@@ -117,7 +117,7 @@ This example file does a Barnes 2-pass, 2-dimensional analysis.  Sweep-file name
    glon = -97.461945,                 ! longitude of grid origin (deg)
    glat = 35.235832,                  ! latitude  of grid origin (deg)
    galt = 0.373,                      ! altitude of grid origin (km MSL)
-
+                                      !
    rlon = -97.461945,                 ! radar longitude (deg)
    rlat = 35.235832,                  ! radar latitude (deg)
    ralt = 0.373,                      ! radar altitude (km MSL)
