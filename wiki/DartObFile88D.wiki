@@ -26,5 +26,5 @@ limited quality control
 
 = Links =
 
-[http://www.image.ucar.edu/DAReS/DART/ Data Assimilation Research Testbed (DART)]
-[http://www.eol.ucar.edu/Members/dennisf/foray Foray]
+* [http://www.image.ucar.edu/DAReS/DART/ Data Assimilation Research Testbed (DART)]
+* [http://www.eol.ucar.edu/Members/dennisf/foray Foray]
