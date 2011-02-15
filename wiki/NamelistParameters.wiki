@@ -151,7 +151,7 @@ allow_extrapolation ! .true. if extrapolation should be allowed  [default:  .tru
 
 * optional character (string) parameters: *
 {{{
-cm_ncfile           ! netcdf "ppi stats" file name for clutter masking  [default:  ""]
+cm_ncfile           ! netcdf "ppi stats" file name for clutter masking (required if use_clutter_mask is .true.)  [default:  none]
 cm_refl_fname       ! name of reflectivity field in current analysis  [default:  "REF"]
 cm_refl_fname_ppi   ! name of reflectivity field in "ppi stats" file  [default:  "REF"]
 cm_vel_fname_ppi    ! name of velocity field in "ppi stats" file  [default:  "VEL"]
