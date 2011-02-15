@@ -32,6 +32,10 @@ glat                ! latitude (deg) of grid origin
 galt                ! altitude (km MSL) of grid origin
 }}}
 
+* required character (string) parameters: *
+{{{
+output_prefix       ! prefix name for output files
+}}}
 
 * optional integer parameters: *
 {{{
@@ -48,8 +52,12 @@ cmn                 ! minute in reference time used for time-to-space conversion
 cse                 ! second in reference time used for time-to-space conversion  [default:  second in first sweep file]
 
 year_cor            ! offset in years to correct each ray  [default: 0]
-day_cor            ! offset in days to correct each ray  [default: 0]
-sec_cor            ! offset in seconds to correct each ray  [default: 0]
+day_cor             ! offset in days to correct each ray  [default: 0]
+sec_cor             ! offset in seconds to correct each ray  [default: 0]
+
+az_corr_flag        ! method of additional azimuth-angle correction  [default: 0]
+                    !   0 = none
+                    !   1 = average current and previous angle
 }}}
 
 * optional real parameters: *
@@ -61,29 +69,27 @@ ralt                ! radar altitude (km MSL)  [default: value obtained from rad
 ut                  ! x-direction translation velocity (m/s) used for time-to-space conversion  [default: 0.0]
 vt                  ! y-direction translation velocity (m/s) used for time-to-space conversion  [default: 0.0]
                     ! If ut and/or vt is nonzero, then each observation time is reset to the reference time after the time-to-space conversion.
+
+elcor               ! elevation-angle offset (deg)  [default: 0.0]
+
+azcor               ! azimuth-angle offset (deg)  [default: 0.0]
 }}}
 
 * optional logical parameters: *
 {{{
 umass_data          ! .true. if the subroutine for UMass radar-data corrections should be used  [default:  .false.]
+
+output_beam_info    ! .true. if beam information (NetCDF) should be output  [default:  .true.]
+output_dart         ! .true. if DART obs_seq.out output should be created  [default:  .true.]
+output_netcdf       ! .true. if NetCDF analysis output should be created  [default:  .true.]
+output_vis5d        ! .true. if Vis5D output should be created  [default:  .true.]
 }}}
 
 
-{{{
-   az_corr_flag = 0,                  ! method of additional azimuth-angle correction
-                                      !   0 = none
-                                      !   1 = average current and previous angle
 
-   elcor = 0.0,                       ! elevation angle correction (deg)
-   azcor = 0.0,                       ! azimuth-angle offset (deg)
-                                      !
-   output_prefix = 'sweep_cressman',  ! prefix name for output files
-                                      !
-   output_beam_info = .true.          ! .true. if beam information should be output
-   output_dart = .true.               ! .true. if DART obs_seq.out output should be created
-   output_netcdf = .true.             ! .true. if NetCDF analysis output should be created
-   output_vis5d = .true.              ! .true. if Vis5D output should be created
-                                      !
+{{{
+
+ 
    analysis_type   = 2,               ! Type of analysis
                                       !   1 == 3D Cartesian
                                       !   2 == 2D sweep-by-sweep
