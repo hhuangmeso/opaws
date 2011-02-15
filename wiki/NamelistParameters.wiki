@@ -2,7 +2,7 @@
 
 The UNIX command-line syntax for running the _x.oban_ objective-analysis program is
 
-*x.oban oban.nml*
+*% x.oban oban.nml*
 
 Note that _oban.nml_ is the example file name that will be used here.  Users are free to choose other file names.
 
