@@ -23,6 +23,13 @@ analysis_type       ! Type of analysis
 method              ! Interpolation method:
                     !   1 = Cressman
                     !   2 = Barnes
+
+radar_data_format   ! radar data format: 1=dorade sweep files, 2=Foray NetCDF
+
+nfld                ! number of data fields to be gridded
+
+nswp                ! controls file I/O:  nswp = -1 ==> read all files corresponding to path name at bottom of input file
+                    !                     nswp >  0 ==> read nswp # of filenames at bottom of input file
 }}}
 
 * required real parameters: *
@@ -134,6 +141,10 @@ remove_gc_vert_grad    ! true. if ground clutter should be removed based on vert
 use_clutter_mask    ! .true. if clutter mask based on ppi stats should be implemented [default:  .false.]
 
 use_clear_air_type  ! .true. if clear-air reflectivity ob. type should be used for DART output  [default:  .false.]
+
+allow_extrapolation ! .true. if extrapolation should be allowed  [default:  .true.]
+                    ! .true. corresponds to a standard objective analysis
+                    ! .false. means that observations in each octant around a gridpoint are required to produce an objectively-analyzed value
 }}}
 
 * optional character (string) parameters: *
@@ -142,25 +153,9 @@ cm_ncfile           ! netcdf "ppi stats" file name for clutter masking  [default
 cm_refl_fname       ! name of reflectivity field in current analysis  [default:  "REF"]
 cm_refl_fname_ppi   ! name of reflectivity field in "ppi stats" file  [default:  "REF"]
 cm_vel_fname_ppi    ! name of velocity field in "ppi stats" file  [default:  "VEL"]
+
+ncgen_command       ! path/executable for local "ncgen" command  [default:  "ncgen"]
 }}}
-
-
-
-{{{
-
-
-   allow_extrapolation = .true.       ! should extrapolation be allowed?
-                                      !   .true. for standard objective analysis, .false. for interpolation only
-                                      !
-   radar_data_format = 1,             ! radar data format: 1=dorade sweep files, 2=netcdf (FORAY)
-                                      !
-   nfld = 2,                          ! number of data fields to be gridded
-                                      !
-   nswp = 14                          ! controls file I/O:  nswp = -1 ==> read all files in directory at bottom of input file
-                                      !                     nswp >  0 ==> read nswp # of filenames at bottom of input file
-   ncgen_command = 'ncgen',           ! path/executable for local "ncgen" command
-}}}
-
 
 
 = &fields =
