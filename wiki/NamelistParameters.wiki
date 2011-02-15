@@ -164,8 +164,8 @@ ncgen_command       ! path/executable for local "ncgen" command  [default:  "ncg
 
 * required real parameters: *
 {{{
-error               ! list of observational error standard deviations (e.g., 5.0, 2.0) for each field
-                    ! Note:  this information is output in DART-format observation files
+error               ! list of observational error standard deviations (e.g., 5.0, 2.0) for each field  [default:  none]
+                    ! (required if output_dart is .true.)
 }}}
 
 * required character (string) parameters: *
@@ -179,28 +179,31 @@ fill_flag           ! list of flags for each field (e.g., 1, 0) to indicate whet
 
 unfold_flag         ! list of flags for each field (e.g., 0, 1) to indicate whether velocity data should be locally unfolded  [default:  0]
                     ! 1=yes, 0=no, -1=not currently implemented
+
+                      ! These are extra filters for the data.  The thresholding is done on
+                      ! the first field read in, which is usually reflectivity.  If you are not sure
+                      ! what to use, turn these off.
+pre_oban_filter_flag  ! list of PRE-oban filter flags for each field  [default:  0]
+                      ! ON=1 (lower threshold) or -1 (upper threshold), OFF=0
+post_oban_filter_flag ! list of POST-oban filter flags for each field  [default:  0]
+                      ! ON=1 (lower threshold) or -1 (upper threshold), OFF=0
 }}}
 
 * optional real parameters: *
 {{{
 fill_value          ! list of replacement values (e.g., 5.0, 0.0) for filling data voids (required if fill_flag is 1 for any field)  [default:  none]
+
+pre_oban_filter_value    ! list of threshold values for setting observations to missing before the objective analysis  [default:  none]
+                         ! Example:
+                         !         If pre_oban_filter_flag is 1 and pre_oban_filter_value is 20.0 for the current field,
+                         !         then values of the current field are set to missing where field #1 (usually reflectivity) is < 20.0.
+
+post_oban_filter_value   ! list of threshold values for setting analysis values to missing after the objective analysis  [default:  none]
+                         ! Example:
+                         !         If post_oban_filter_flag is -1 and post_oban_filter_value is 70.0 for the current field,
+                         !         then analysis values of the current field are set to missing where field #1 (usually reflectivity) is > 70.0.
 }}}
 
-{{{
-
-                                      ! These are extra filters for the data.  The thresholding is done on
-                                      ! the first field read in, which is usually DBZ.  If you are not sure
-                                      ! what to use, turn these off.
-   pre_oban_filter_flag  = 0,   0,    ! PRE-oban filter ON=1 (lower threshold) or -1 (upper threshold), OFF=0
-   pre_oban_filter_value = 10., 10.,  ! All fields are set to missing below/above this value 
-                                      ! Example:
-                                      !         Threshold Vr on dBZ:  pre_oban_filter_flag = 1, Vr=missing for dBZ < 20.
-                                      !
-   post_oban_filter_flag  = 0,   0,   ! POST-oban filter ON=1 (lower threshold) or -1 (upper threshold), OFF=0
-   post_oban_filter_value = 10., 10., ! All fields are set to missing below/above this value 
-                                      ! Example:
-                                      !         Threshold Vr on dBZ:  post_oban_filter_flag = -1, Vr=missing for dBZ > 70.
-}}}
 
 = Sweep File List =
 
