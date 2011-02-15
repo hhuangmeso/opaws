@@ -162,15 +162,32 @@ ncgen_command       ! path/executable for local "ncgen" command  [default:  "ncg
 
 = &fields =
 
+* required real parameters: *
 {{{
-   fieldnames  = 'DZ', 'VU',          ! Names of the fields to be read from the dorade/netcdf radar-data files
-   fill_flag   =    1,    0,          ! fill missing field values with a specified value? (0=no, 1=yes)
-   fill_value  =  0.0,  0.0,          ! replacement value, if fill_flag==1
-                                      !
-   unfold_flag =    0,    0,          ! locally unfold field? (0=no, 1=yes)
-                                      !
-   error       =  5.0,  2.0,          ! Observational error standard deviation for the DART observations
-                                      !
+error               ! list of observational error standard deviations (e.g., 5.0, 2.0) for each field
+                    ! Note:  this information is output in DART-format observation files
+}}}
+
+* required character (string) parameters: *
+{{{
+fieldnames          ! list of names of the fields (e.g., 'DZ', 'VU') to be read from the dorade/netcdf radar-data files
+}}}
+
+* optional integer parameters: *
+{{{
+fill_flag           ! list of flags for each field (e.g., 1, 0) to indicate whether missing values should be replaced with a specified value (0=no, 1=yes)  [default:  0]
+
+unfold_flag         ! list of flags for each field (e.g., 0, 1) to indicate whether velocity data should be locally unfolded  [default:  0]
+                    ! 1=yes, 0=no, -1=not currently implemented
+}}}
+
+* optional real parameters: *
+{{{
+fill_value          ! list of replacement values (e.g., 5.0, 0.0) for filling data voids (required if fill_flag is 1 for any field)  [default:  none]
+}}}
+
+{{{
+
                                       ! These are extra filters for the data.  The thresholding is done on
                                       ! the first field read in, which is usually DBZ.  If you are not sure
                                       ! what to use, turn these off.
