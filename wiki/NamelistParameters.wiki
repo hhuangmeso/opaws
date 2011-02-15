@@ -100,7 +100,7 @@ This example _oban.nml_ file does a Cressman 3D analysis of dorade sweep files. 
 
 = Example 2 =
 
-This example file does a Barnes 2-pass, 2-dimensional analysis of Foray-NetCDF radar data.  Sweep-file names are specified by path name.
+This example _oban.nml_ file does a Barnes 2-pass, 2-dimensional analysis of Foray-NetCDF radar data.  Sweep-file names are specified by path name.
 
 {{{
 &parameters
