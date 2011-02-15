@@ -10,7 +10,7 @@ The _oban.nml_ file must include three sections:  a Fortran namelist called _&pa
 
 = &parameters =
 
-* required parameters *
+** required parameters **
 
 integer parameters:
 {{{
