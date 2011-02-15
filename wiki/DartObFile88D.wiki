@@ -1,0 +1,39 @@
+#summary steps for creating a DART-format observation file from WSR-88D data
+
+A common task in storm-scale data assimilation is to produce [http://www.image.ucar.edu/DAReS/DART/DART_Observations.php#obs_seq_overview Data Assimilation Research Testbed (DART) format] observation files for archived WSR-88D data.  Here is a summary of one way to accomplish this task.
+
+= Obtaining WSR-88D Data from NCDC =
+
+Radar data that are input to OPAWS can be in one of the following two formats:  Dorade sweep files or Foray NetCDF (Foray-1 version).
+
+*Dorade sweep files*
+
+ * Developed by the National Center for Atmospheric Research (NCAR)
+ * Used by the NCAR [http://www.eol.ucar.edu/rdp/solo/solo_home.html SOLO editing program]
+ * Designated as the format for VORTEX and VORTEX2 radar data
+
+Detailed information is provided in the [http://www.ral.ucar.edu/projects/titan/docs/radial_formats/DoradeDoc.pdf DORADE documentation].
+
+*Foray-1 NetCDF*
+
+ * Developed by the National Center for Atmospheric Research (NCAR)
+ * Designated as the format for TIMREX radar data
+ * Considered a pathway to [http://www.eol.ucar.edu/Members/dennisf/foray2 Foray2]
+
+More information is available on the [http://www.eol.ucar.edu/Members/dennisf/foray Foray web page].  
+
+= Analysis Grid =
+
+Data are analyzed (gridded) in either two dimensions (on the conical surface of each sweep) or three dimensions (on a Cartesian grid).  Three-dimensional Cartesian grids are typical for radar analysis, particular for gridding data in preparation for multiple-Doppler wind synthesis.  Two-dimensional (sweep-by-sweep) analyses can be advantageous for preprocessing radar data for assimilation into a numerical model, as discussed in [http://journals.ametsoc.org/doi/pdf/10.1175/1520-0493%282004%29132%3C1982%3AWATRIT%3E2.0.CO%3B2 Wind and Temperature Retrievals in the 17 May 1981 Arcadia, Oklahoma, Supercell: Ensemble Kalman Filter Experiments, Mon. Wea. Rev., August 2004, p. 1982].
+
+= Output Analysis Data =
+
+Gridded analyses can be output in any of the following formats:
+
+ * [http://www.unidata.ucar.edu/software/netcdf/ NetCDF]
+ * [http://www.ssec.wisc.edu/~billh/vis5d.html Vis5D] format
+ .
+
+= Links =
+
+* [http://www.image.ucar.edu/DAReS/DART/ Data Assimilation Research Testbed (DART)]
