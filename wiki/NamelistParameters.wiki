@@ -34,8 +34,8 @@ nswp                ! controls file I/O:  nswp = -1 ==> read all files correspon
 
 * required real parameters: *
 {{{
-xmin                ! x coordinate (km) of west grid edge, relative to the origin given by glat, glon, galt
-ymin                ! y coordinate (km) of south grid edge, relative to the origin given by glat, glon, galt
+xmin                ! x coordinate (km) of west grid edge, relative to the origin given by glat, glon
+ymin                ! y coordinate (km) of south grid edge, relative to the origin given by glat, glon
 zmin                ! z coordinate (km) of grid bottom, relative to galt (required for 3D analysis, not required for 2D analysis)
 
 dx                  ! grid spacing (km) in x direction
