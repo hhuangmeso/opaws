@@ -146,7 +146,7 @@ use_clear_air_type  ! .true. if clear-air reflectivity ob. type should be used f
 
 allow_extrapolation ! .true. if extrapolation should be allowed  [default:  .true.]
                     ! .true. corresponds to a standard objective analysis
-                    ! .false. means that existence of observations in each octant around a gridpoint are required to produce an objectively-analyzed value
+                    ! .false. means that existence of observations in each octant around a gridpoint is required to produce an objectively-analyzed value
 }}}
 
 * optional character (string) parameters: *
