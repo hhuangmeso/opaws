@@ -10,16 +10,14 @@ The _oban.nml_ file must include three sections:  a Fortran namelist called _&pa
 
 = &parameters =
 
-** required parameters **
-
-integer parameters:
+* required integer parameters: *
 {{{
 nx                  ! number of grid points in x direction
 ny                  ! number of grid points in y direction
 nz                  ! number of grid points in z direction (required for 3D analysis, not required for 2D analysis)
 }}}
 
-real parameters:
+* required real parameters: *
 {{{
 xmin                ! x coordinate (km) of west grid edge, relative to the origin given by glat, glon, galt
 ymin                ! y coordinate (km) of south grid edge, relative to the origin given by glat, glon, galt
@@ -35,9 +33,7 @@ galt                ! altitude (km MSL) of grid origin
 }}}
 
 
-* optional parameters *
-
-integer parameters:
+* optional integer parameters: *
 {{{
 map_proj            ! map projection (for relating lat, lon to x, y)  [default: 0]
                     !   0 = flat earth for horizontal distance calculations, 4/3 earth radius for height calculations
@@ -50,30 +46,34 @@ cda                 ! day in reference date used for time-to-space conversion  [
 chr                 ! hour in reference time used for time-to-space conversion  [default:  hour in first sweep file]
 cmn                 ! minute in reference time used for time-to-space conversion  [default:  minute in first sweep file]
 cse                 ! second in reference time used for time-to-space conversion  [default:  second in first sweep file]
+
+year_cor            ! offset in years to correct each ray  [default: 0]
+day_cor            ! offset in days to correct each ray  [default: 0]
+sec_cor            ! offset in seconds to correct each ray  [default: 0]
 }}}
 
-real parameters:
+* optional real parameters: *
 {{{
 rlon                ! radar longitude (deg)  [default: value obtained from radar-data sweep file]
 rlat                ! radar latitude (deg)  [default: value obtained from radar-data sweep file]
 ralt                ! radar altitude (km MSL)  [default: value obtained from radar-data sweep file]
                            
-
-
 ut                  ! x-direction translation velocity (m/s) used for time-to-space conversion  [default: 0.0]
 vt                  ! y-direction translation velocity (m/s) used for time-to-space conversion  [default: 0.0]
-                  ! If ut and/or vt is nonzero, then each observation time is reset to the reference time after the time-to-space conversion.
+                    ! If ut and/or vt is nonzero, then each observation time is reset to the reference time after the time-to-space conversion.
+}}}
 
-year_cor = 0,                      ! offset in years to correct each ray
-day_cor = 0,                       ! offset in days to correct each ray
-sec_cor = -150,                    ! offset in seconds to correct each ray
-                                      ! 
-   umass_data = .false.               ! .true. (.false.) if UMass radar-data corrections are (not) needed
-                                      ! 
+* optional logical parameters: *
+{{{
+umass_data          ! .true. if the subroutine for UMass radar-data corrections should be used  [default:  .false.]
+}}}
+
+
+
    az_corr_flag = 0,                  ! method of additional azimuth-angle correction
                                       !   0 = none
                                       !   1 = average current and previous angle
-                                      !
+
    elcor = 0.0,                       ! elevation angle correction (deg)
    azcor = 0.0,                       ! azimuth-angle offset (deg)
                                       !
