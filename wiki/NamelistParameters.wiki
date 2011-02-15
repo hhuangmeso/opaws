@@ -93,6 +93,14 @@ azcor               ! azimuth-angle offset (deg)  [default: 0.0]
 refl_thresh         ! reflectivity threshold (dBZ) for first two steps in Steiner and Smith (2002) algorithm  [default:  5.0]
 refl_fluc           ! reflectivity fluctuation (dBZ) for spin-change portion of algorithm  [default:  2.0]
 grad_thresh         ! reflectivity gradient (dBZ/degree) for vertical-gradient portion of algorithm  [default:  10.0]
+
+cm_min_refl_avail   ! minimum reflectivity availability (%) for clutter mask  [default:  75.0]
+cm_min_refl         ! minimum reflectivity (dBZ) for clutter mask  [default:  -5.0]
+cm_max_refl_sd      ! maximum reflectivity standard deviation (dBZ) for clutter mask  [default:  10.0]
+cm_refl_exceedance  ! reflectivity exceedance (dBZ) for which standard clutter mask is ignored  [default:  20.0]
+cm_min_vel_sd       ! minimum velocity standard deviation (m/s) for highway detection in clutter mask  [default:  7.5]
+cm_max_vel          ! maximum velocity absolute magnitude (m/s) for standard clutter detection in clutter mask  [default:  2.0]
+cm_max_vel_sd       ! maximum velocity standard deviation (m/s) for standard clutter detection in clutter mask  [default:  2.0]
 }}}
 
 * optional logical parameters: *
@@ -104,12 +112,22 @@ output_dart         ! .true. if DART obs_seq.out output should be created  [defa
 output_netcdf       ! .true. if NetCDF analysis output should be created  [default:  .true.]
 output_vis5d        ! .true. if Vis5D output should be created  [default:  .true.]
 
-                    ! The following 4 parameters are for the Steiner and Smith (2002, J. Atmos. Oceanic Technol.) 
-                    !   algorithm for removing echoes not associated with precipitation. (not currently implemented)
+                       ! The following 4 parameters are for the Steiner and Smith (2002, J. Atmos. Oceanic Technol.) 
+                       !   algorithm for removing echoes not associated with precipitation. (not currently implemented)
 remove_gc_refl_thresh  ! true. if ground clutter should be removed based on reflectivity threshold [default:  .false.]
-remove_gc_echo_top    ! true. if ground clutter should be removed based on echo top [default:  .false.]
-remove_gc_spin_change ! true. if ground clutter should be removed based on spin change [default:  .false.]
-remove_gc_vert_grad   ! true. if ground clutter should be removed based on vertical gradient [default:  .false.]
+remove_gc_echo_top     ! true. if ground clutter should be removed based on echo top [default:  .false.]
+remove_gc_spin_change  ! true. if ground clutter should be removed based on spin change [default:  .false.]
+remove_gc_vert_grad    ! true. if ground clutter should be removed based on vertical gradient [default:  .false.]
+
+use_clutter_mask    ! .true. if clutter mask based on ppi stats should be implemented [default:  .false.]
+}}}
+
+* optional character (string) parameters: *
+{{{
+cm_ncfile           ! netcdf "ppi stats" file name for clutter masking  [default:  ""]
+cm_refl_fname       ! name of reflectivity field in current analysis  [default:  "REF"]
+cm_refl_fname_ppi   ! name of reflectivity field in "ppi stats" file  [default:  "REF"]
+cm_vel_fname_ppi    ! name of velocity field in "ppi stats" file  [default:  "VEL"]
 }}}
 
 
@@ -118,21 +136,6 @@ remove_gc_vert_grad   ! true. if ground clutter should be removed based on verti
 
 
 
-                                      !
-
-                                      !
-   use_clutter_mask = .false.         ! .true. if clutter mask based on ppi stats should be implemented
-   cm_min_refl_avail = 75.0           ! minimum reflectivity availability (%) for clutter mask
-   cm_min_refl = -5.0                 ! minimum reflectivity (dBZ) for clutter mask
-   cm_max_refl_sd = 10.0              ! maximum reflectivity standard deviation (dBZ) for clutter mask
-   cm_refl_exceedance = 20.0          ! reflectivity exceedance (dBZ) for which standard clutter mask is ignored
-   cm_min_vel_sd = 7.5                ! minimum velocity standard deviation (m/s) for highway detection in clutter mask
-   cm_max_vel = 2.0                   ! maximum velocity absolute magnitude (m/s) for standard clutter detection in clutter mask
-   cm_max_vel_sd = 2.0                ! maximum velocity standard deviation (m/s) for standard clutter detection in clutter mask
-   cm_ncfile = ""                     ! netcdf "ppi stats" file name for clutter masking
-   cm_refl_fname = "REF"              ! name of reflectivity field in current analysis
-   cm_refl_fname_ppi = "REF"          ! name of reflectivity field in "ppi stats" file
-   cm_vel_fname_ppi = "VEL"           ! name of velocity field in "ppi stats" file
                                       !
    use_clear_air_type = .false.       ! .true. if clear-air reflectivity ob. type should be used for DART output
    clear_air_skip = 0                 ! thinning factor for clear-air reflectivity data
