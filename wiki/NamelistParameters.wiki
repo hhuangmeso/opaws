@@ -69,7 +69,7 @@ umass_data          ! .true. if the subroutine for UMass radar-data corrections 
 }}}
 
 
-
+{{{
    az_corr_flag = 0,                  ! method of additional azimuth-angle correction
                                       !   0 = none
                                       !   1 = average current and previous angle
