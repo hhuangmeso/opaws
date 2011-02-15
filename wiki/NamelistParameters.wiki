@@ -72,6 +72,11 @@ az_corr_flag        ! method of additional azimuth-angle correction  [default: 0
                     !   1 = average current and previous angle
 
 npass               ! number of objective-analysis passes  [default:  1]
+
+clear_air_skip      ! thinning factor for clear-air reflectivity data  [default: 0]
+
+mincount            ! threshold for minimum number of observations required
+                    !   to produce an objectively-analyzed value  [default:  1]
 }}}
 
 * optional real parameters: *
@@ -101,6 +106,13 @@ cm_refl_exceedance  ! reflectivity exceedance (dBZ) for which standard clutter m
 cm_min_vel_sd       ! minimum velocity standard deviation (m/s) for highway detection in clutter mask  [default:  7.5]
 cm_max_vel          ! maximum velocity absolute magnitude (m/s) for standard clutter detection in clutter mask  [default:  2.0]
 cm_max_vel_sd       ! maximum velocity standard deviation (m/s) for standard clutter detection in clutter mask  [default:  2.0]
+
+height_max          ! height (km above grid origin) above which observations are discarded  [default:  no specified value and no height thresholding]
+
+minrange            ! minimum-range threshold (km); data closer to radar are discarded  [default: 0.0]
+
+minsum              ! threshold for minimum sum of weights required to produce
+                    !   an objectively-analyzed value  [default:  0.0]
 }}}
 
 * optional logical parameters: *
@@ -120,6 +132,8 @@ remove_gc_spin_change  ! true. if ground clutter should be removed based on spin
 remove_gc_vert_grad    ! true. if ground clutter should be removed based on vertical gradient [default:  .false.]
 
 use_clutter_mask    ! .true. if clutter mask based on ppi stats should be implemented [default:  .false.]
+
+use_clear_air_type  ! .true. if clear-air reflectivity ob. type should be used for DART output  [default:  .false.]
 }}}
 
 * optional character (string) parameters: *
@@ -135,19 +149,6 @@ cm_vel_fname_ppi    ! name of velocity field in "ppi stats" file  [default:  "VE
 {{{
 
 
-
-                                      !
-   use_clear_air_type = .false.       ! .true. if clear-air reflectivity ob. type should be used for DART output
-   clear_air_skip = 0                 ! thinning factor for clear-air reflectivity data
-                                      !
-   height_max = 100.0                 ! height (km above grid origin) above which observations are discarded
-                                      !
-   minrange = 10.0,                   ! minimum-range threshold (in km, data closer to radar are discarded)
-   mincount = 3,                      ! threshold for minimum number of data gates required
-                                      !   to produce an objectively-analyzed observation
-   minsum   = 0.1,                    ! threshold for minimum sum of weights required to produce
-                                      !   an objectively-analyzed observation
-                                      !
    allow_extrapolation = .true.       ! should extrapolation be allowed?
                                       !   .true. for standard objective analysis, .false. for interpolation only
                                       !
