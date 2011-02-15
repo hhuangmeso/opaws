@@ -6,7 +6,9 @@ The UNIX command-line syntax for running the _x.oban_ objective-analysis program
 
 Note that _oban.nml_ is the example file name that will be used here.  Users are free to choose other file names.
 
-The _oban.nml_ file must include three sections:  _&parameters_ (general information about the desired objective analysis), _%fields_ (information specific to individual data fields), and a list of sweep-file names.  These sections of the _oban.nml_ file are described in more 
+The _oban.nml_ file must include three sections:  _&parameters_ (general information about the desired objective analysis), _&fields_ (information specific to individual data fields), and a list of sweep-file names.  These sections of the _oban.nml_ file are described in more detail below.
+
+
 
 This example file does a Cressman 2D analysis
 
@@ -17,10 +19,10 @@ This example file does a Cressman 2D analysis
    nz = 1,                             ! no. of grid points in z direction
 
                                              !
-   xmin = -80.0,                      ! coordinates of lower southwest corner (in km)
-   ymin = -80.0,                      !     of analysis grid relative to the 
-   zmin = 0.0,                        !     origin given by glat, glon, galt
-                                      !
+   xmin = -80.0,                ! coordinates of lower southwest corner (in km)
+   ymin = -80.0,                !     of analysis grid relative to the 
+   zmin = 0.0,                     !     origin given by glat, glon, galt
+                                             !
    dx = 2.0,                          ! grid spacing in x direction (km)
    dy = 2.0,                          ! grid spacing in y direction (km)
    dz = 1.0,                          ! grid spacing in z direction (km)
