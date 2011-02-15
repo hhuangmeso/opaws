@@ -1,21 +1,22 @@
 #summary steps for creating a DART-format observation file from WSR-88D data
 
-A common task in storm-scale data assimilation is to produce [http://www.image.ucar.edu/DAReS/DART/DART_Observations.php#obs_seq_overview Data Assimilation Research Testbed (DART) format] observation files for archived WSR-88D data.  Here is a summary of one way to accomplish this task.
+A common task in storm-scale data assimilation is to produce [http://www.image.ucar.edu/DAReS/DART/DART_Observations.php#obs_seq_overview Data Assimilation Research Testbed (DART) format] observation files for archived WSR-88D data.  Here is a summary of a way to accomplish this task.
 
 = Obtaining WSR-88D Data from NCDC =
 
 Archived WSR-88D datasets can be obtained from the [http://has.ncdc.noaa.gov/pls/plhas/HAS.FileAppSelect?datasetname=6500 Hierarchical Data Storage System (HDSS)] at the National Climatic Data Center (NCDC).  To obtain a dataset from this website, select the radar name of interest, select the dates of interest, enter your e-mail address, and then click on "Continue With Selections".  The website will then ask you to select specific files (dates and times) of interest.  After choosing the desired files, click on "Retrieve Selected Files".  You will be notified with an e-mail containing ftp instructions when your files are ready to be retrieved.
 
-
+The retrieved datasets are _.tar_ files for each requested radar and hour.  After the files are separated and uncompressed with the _tar_ and _gunzip_ commands, the result is Archive 2 data, one file per volume.
 
 = Converting WSR-88D Data to Dorade / NetCDF Sweep Files with Foray =
 
-[http://www.ral.ucar.edu/projects/titan/docs/radial_formats/DoradeDoc.pdf DORADE documentation]
-[http://www.eol.ucar.edu/Members/dennisf/foray Foray web page]
+The Archive 2 data obtained in the previous step can be converted to either [http://www.ral.ucar.edu/projects/titan/docs/radial_formats/DoradeDoc.pdf DORADE] or NetCDF-Foray
+sweep files with the [http://www.eol.ucar.edu/Members/dennisf/foray/translator-usage Foray data translator].  See the [http://www.eol.ucar.edu/Members/dennisf/foray/getting-and-building-foray instructions for downloading and building] Foray.
 
 = Preprocessing Sweep Files with OPAWS =
 
 objective analysis
+
 limited quality control
 
 
