@@ -15,6 +15,14 @@ The _oban.nml_ file must include three sections:  a Fortran namelist called _&pa
 nx                  ! number of grid points in x direction
 ny                  ! number of grid points in y direction
 nz                  ! number of grid points in z direction (required for 3D analysis, not required for 2D analysis)
+
+analysis_type       ! Type of analysis
+                    !   1 = 3D Cartesian
+                    !   2 = 2D sweep-by-sweep
+
+method              ! Interpolation method:
+                    !   1 = Cressman
+                    !   2 = Barnes
 }}}
 
 * required real parameters: *
@@ -30,6 +38,10 @@ dz                  ! grid spacing (km) in z direction (required for 3D analysis
 glon                ! longitude (deg) of grid origin
 glat                ! latitude (deg) of grid origin
 galt                ! altitude (km MSL) of grid origin
+
+hsp0                ! either Cressman horiz. radius of influence (km) or Barnes smoothing parameter (kappa, in km**2)
+vsp0                ! either Cressman vert. radius of influence (km) or Barnes smoothing parameter (kappa, in km**2)
+gamma               ! gamma parameter for multi-pass Barnes analysis (not required for Cressman and/or single-pass Barnes analysis)
 }}}
 
 * required character (string) parameters: *
@@ -58,6 +70,8 @@ sec_cor             ! offset in seconds to correct each ray  [default: 0]
 az_corr_flag        ! method of additional azimuth-angle correction  [default: 0]
                     !   0 = none
                     !   1 = average current and previous angle
+
+npass               ! number of objective-analysis passes  [default:  1]
 }}}
 
 * optional real parameters: *
@@ -73,6 +87,12 @@ vt                  ! y-direction translation velocity (m/s) used for time-to-sp
 elcor               ! elevation-angle offset (deg)  [default: 0.0]
 
 azcor               ! azimuth-angle offset (deg)  [default: 0.0]
+
+                    ! The following 3 parameters are for the Steiner and Smith (2002, J. Atmos. Oceanic Technol.) 
+                    !   algorithm for removing echoes not associated with precipitation. (not currently implemented)
+refl_thresh         ! reflectivity threshold (dBZ) for first two steps in Steiner and Smith (2002) algorithm  [default:  5.0]
+refl_fluc           ! reflectivity fluctuation (dBZ) for spin-change portion of algorithm  [default:  2.0]
+grad_thresh         ! reflectivity gradient (dBZ/degree) for vertical-gradient portion of algorithm  [default:  10.0]
 }}}
 
 * optional logical parameters: *
@@ -83,33 +103,23 @@ output_beam_info    ! .true. if beam information (NetCDF) should be output  [def
 output_dart         ! .true. if DART obs_seq.out output should be created  [default:  .true.]
 output_netcdf       ! .true. if NetCDF analysis output should be created  [default:  .true.]
 output_vis5d        ! .true. if Vis5D output should be created  [default:  .true.]
+
+                    ! The following 4 parameters are for the Steiner and Smith (2002, J. Atmos. Oceanic Technol.) 
+                    !   algorithm for removing echoes not associated with precipitation. (not currently implemented)
+remove_gc_refl_thresh  ! true. if ground clutter should be removed based on reflectivity threshold [default:  .false.]
+remove_gc_echo_top    ! true. if ground clutter should be removed based on echo top [default:  .false.]
+remove_gc_spin_change ! true. if ground clutter should be removed based on spin change [default:  .false.]
+remove_gc_vert_grad   ! true. if ground clutter should be removed based on vertical gradient [default:  .false.]
 }}}
 
 
 
 {{{
 
- 
-   analysis_type   = 2,               ! Type of analysis
-                                      !   1 == 3D Cartesian
-                                      !   2 == 2D sweep-by-sweep
-   method = 1,                        ! Interpolation method:
-                                      !   1 == Cressman
-                                      !   2 == Barnes
-   hsp0 = 1.00,                       ! either Cressman horiz. radius of influence (km) or Barnes smoothing parameter (kappa, in km**2)
-   vsp0 = 1.00,                       ! either Cressman vert. radius of influence (km) or Barnes smoothing parameter (kappa, in km**2)
-   gamma = 0.3,                       ! gamma parameter for multi-pass Barnes analysis
-   npass = 1,                         ! number of passes
+
+
                                       !
-                                      ! The following 7 parameters affect the implementation of the Steiner and Smith (2002,
-                                      !   J. Atmos. Oceanic Technol.) algorithm for removing echoes not associated with precipitation.
-   remove_gc_refl_thresh = .false.    ! true. if ground clutter should be removed based on reflectivity threshold
-   remove_gc_echo_top = .false.       ! true. if ground clutter should be removed based on echo top
-   refl_thresh = 5.0                  ! reflectivity threshold (dBZ) for first two steps in Steiner and Smith (2002) algorithm
-   remove_gc_spin_change = .false.    ! true. if ground clutter should be removed based on spin change
-   refl_fluc = 2.0                    ! reflectivity fluctuation (dBZ) for spin-change portion of algorithm
-   remove_gc_vert_grad = .false.      ! true. if ground clutter should be removed based on vertical gradient
-   grad_thresh = 10.0                 ! reflectivity gradient (dBZ/degree) for vertical-gradient portion of algorithm
+
                                       !
    use_clutter_mask = .false.         ! .true. if clutter mask based on ppi stats should be implemented
    cm_min_refl_avail = 75.0           ! minimum reflectivity availability (%) for clutter mask
