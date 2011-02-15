@@ -196,12 +196,12 @@ fill_value          ! list of replacement values (e.g., 5.0, 0.0) for filling da
 pre_oban_filter_value    ! list of threshold values for setting observations to missing before the objective analysis  [default:  none]
                          ! Example:
                          !         If pre_oban_filter_flag is 1 and pre_oban_filter_value is 20.0 for the current field,
-                         !         then values of the current field are set to missing where field #1 (usually reflectivity) is < 20.0.
+                         !         then observed values of the current field are set to missing where field #1 (usually reflectivity) is < 20.0.
 
 post_oban_filter_value   ! list of threshold values for setting analysis values to missing after the objective analysis  [default:  none]
                          ! Example:
                          !         If post_oban_filter_flag is -1 and post_oban_filter_value is 70.0 for the current field,
-                         !         then analysis values of the current field are set to missing where field #1 (usually reflectivity) is > 70.0.
+                         !         then analysis values of the current field are set to missing where analysis field #1 (usually reflectivity) is > 70.0.
 }}}
 
 
