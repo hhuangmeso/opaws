@@ -50,7 +50,7 @@ hsp0                ! either Cressman horiz. radius of influence (km) or Barnes 
 
 vsp0                ! either Cressman vert. radius of influence (km) or Barnes smoothing parameter (kappa, in km**2) (not required for 2D analysis)
 
-gamma               ! gamma parameter for multi-pass Barnes analysis (not required for Cressman and/or single-pass Barnes analysis)
+gamma               ! convergence parameter for multi-pass Barnes analysis (not required for Cressman and/or single-pass Barnes analysis)
 }}}
 
 * required character (string) parameters: *
