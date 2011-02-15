@@ -1,6 +1,8 @@
 Here we add some information as to how to compile on other platforms
 with non-gfortran compilers.   Please feel free to add your info, if it differs substantially from our information.  Please try and be concise, and use our naming conventions
 
+_One important issue when compiling our fortran source:  we often use lines > 80 characters, so any compiler used must have the 132 character line length invoked._
+
 ----
 
 * OS:  Mac OS X 10.6.6
