@@ -178,7 +178,7 @@ fieldnames          ! list of names of the fields (e.g., 'DZ', 'VU') to be read 
 fill_flag           ! list of flags for each field (e.g., 1, 0) to indicate whether missing values should be replaced with a specified value (0=no, 1=yes)  [default:  0]
 
 unfold_flag         ! list of flags for each field (e.g., 0, 1) to indicate whether velocity data should be locally unfolded  [default:  0]
-                    ! 1=yes, 0=no, -1=not currently implemented
+                    ! 1=yes, 0=no
 
                       ! These are extra filters for the data.  The thresholding is done on
                       ! the first field read in, which is usually reflectivity.  If you are not sure
