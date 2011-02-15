@@ -116,7 +116,7 @@ cm_min_vel_sd       ! minimum velocity standard deviation (m/s) for highway dete
 cm_max_vel          ! maximum velocity absolute magnitude (m/s) for standard clutter detection in clutter mask  [default:  2.0]
 cm_max_vel_sd       ! maximum velocity standard deviation (m/s) for standard clutter detection in clutter mask  [default:  2.0]
 
-height_max          ! height (km above grid origin) above which observations are discarded  [default:  no specified value and no height thresholding]
+height_max          ! height (km above grid origin) above which observations are discarded  [default:  no height thresholding]
 
 minrange            ! minimum-range threshold (km); data closer to radar are discarded  [default: 0.0]
 
