@@ -15,7 +15,7 @@ Detailed information is provided in the [http://www.ral.ucar.edu/projects/titan/
 *Foray-1 NetCDF*
 
  * Developed by the National Center for Atmospheric Research (NCAR)
- * Designated at the format for TIMREX radar data
+ * Designated as the format for TIMREX radar data
  * Considered a pathway to [http://www.eol.ucar.edu/Members/dennisf/foray2 Foray2]
 
 More information is available on the [http://www.eol.ucar.edu/Members/dennisf/foray Foray web page].  
