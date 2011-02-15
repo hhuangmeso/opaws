@@ -4,6 +4,10 @@ A common task in storm-scale data assimilation is to produce [http://www.image.u
 
 = Obtaining WSR-88D Data from NCDC =
 
+Archived WSR-88D datasets can be obtained from the [http://has.ncdc.noaa.gov/pls/plhas/HAS.FileAppSelect?datasetname=6500 Hierarchical Data Storage System (HDSS)] at the National Climatic Data Center (NCDC).  To obtain a dataset from this website, select the radar name of interest, select the dates of interest, enter your e-mail address, and then click on "Continue With Selections".  The website will then ask you to select specific files (dates and times) of interest.  After choosing the desired files, click on "Retrieve Selected Files".  You will be notified with an e-mail containing ftp instructions when your files are ready to be retrieved.
+
+
+
 = Converting WSR-88D Data to Dorade / NetCDF Sweep Files with Foray =
 
 [http://www.ral.ucar.edu/projects/titan/docs/radial_formats/DoradeDoc.pdf DORADE documentation]
