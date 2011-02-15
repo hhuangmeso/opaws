@@ -21,40 +21,36 @@ xmin                ! x coordinate (km) of west grid edge, relative to the origi
 ymin                ! y coordinate (km) of south grid edge, relative to the origin given by glat, glon, galt
 zmin                ! z coordinate (km) of grid bottom, relative to galt (required for 3D analysis, not required for 2D analysis)
 
+dx                  ! grid spacing (km) in x direction
+dy                  ! grid spacing (km) in y direction
+dz                  ! grid spacing (km) in z direction (required for 3D analysis, not required for 2D analysis)
+
+glon                ! longitude (deg) of grid origin
+glat                ! latitude (deg) of grid origin
+galt                ! altitude (km MSL) of grid origin
+
 }}}
+
 
 * optional parameters *
 
-
-
 {{{
-                                      !
+rlon                ! radar longitude (deg)  [default: value obtained from radar-data sweep file]
+rlat                ! radar latitude (deg)  [default: value obtained from radar-data sweep file]
+ralt                ! radar altitude (km MSL)  [default: value obtained from radar-data sweep file]
+                           
+map_proj            ! map projection (for relating lat, lon to x, y)  [default: 0]
+                    !   0 = flat earth for horizontal distance calculations, 4/3 earth radius for height calculations
+                    !   1 = oblique azimuthal (not implemented...)
+                    !   2 = Lambert conformal (not implemented...)
 
-                                      !
-   dx = 2.0,                          ! grid spacing in x direction (km)
-   dy = 2.0,                          ! grid spacing in y direction (km)
-   dz = 1.0,                          ! grid spacing in z direction (km)
-                                      !
-   glon = -97.461945,                 ! longitude of grid origin (deg)
-   glat = 35.235832,                  ! latitude  of grid origin (deg)
-   galt = 0.373,                      ! altitude of grid origin (km MSL)
-                                      ! 
-   rlon = -97.461945,                 ! radar longitude (deg)
-   rlat = 35.235832,                  ! radar latitude (deg)
-   ralt = 0.373,                      ! radar altitude (km MSL)
-                                      ! 
-   map_proj = 0,                      ! map projection (for relating lat, lon to x, y):
-                                      !   0 = flat earth
-                                      !   1 = oblique azimuthal (not implemented...)
-                                      !   2 = Lambert conformal (not implemented...)
-                                      ! 
-   cyr = 2003,                        ! reference date used for (optional) time-to-space conversion:  year
-   cmo = 05,                          ! "                                                         ": month
-   cda = 08,                          ! "                                                         ": day
-   chr = 22,                          ! reference time used for (optional) time-to-space conversion: hour
-   cmn = 02,                          ! "                                                         ": minute
-   cse = 28,                          ! "                                                         ": second
-                                      ! 
+cyr                 ! year in reference date used for time-to-space conversion  [default:  year in first sweep file]
+cmo                 ! month in reference date used for time-to-space conversion  [default:  month in first sweep file]
+cda                 ! day in reference date used for time-to-space conversion  [default:  day in first sweep file]
+chr                 ! hour in reference time used for time-to-space conversion  [default:  hour in first sweep file]
+cmn                 ! minute in reference time used for time-to-space conversion  [default:  minute in first sweep file]
+cse                 ! second in reference time used for time-to-space conversion  [default:  second in first sweep file]
+
    ut = 0.0,                          ! x-translation velocity (m/s) used for time-to-space conversion
    vt = 0.0,                          ! y-translation velocity (m/s) used for time-to-space conversion
                                       ! If UT=VT=0, then new date and time are NOT USED!
