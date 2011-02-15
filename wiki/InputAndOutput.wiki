@@ -29,7 +29,7 @@ Data are analyzed (gridded) in either two dimensions (on the conical surface of 
 Gridded analyses can be output in any of the following formats:
 
  * [http://www.unidata.ucar.edu/software/netcdf/ NetCDF]
- * [http://www.ssec.wisc.edu/~billh/vis5d.html Vis5d] format
+ * [http://www.ssec.wisc.edu/~billh/vis5d.html Vis5D] format
  * [http://www.image.ucar.edu/DAReS/DART/DART_Observations.php#obs_seq_overview Data Assimilation Research Testbed (DART) text observation format].
 
 = Namelist Parameters =
