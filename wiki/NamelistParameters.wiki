@@ -6,16 +6,21 @@ The UNIX command-line syntax for running the _x.oban_ objective-analysis program
 
 Note that _oban.nml_ is the example file name that will be used here.  Users are free to choose other file names.
 
-The _oban.nml_ file must include three sections:  _&parameters_ (general information about the desired objective analysis), _&fields_ (information specific to individual data fields), and a list of sweep-file names.  These sections of the _oban.nml_ file are described in more detail below.
+The _oban.nml_ file must include three sections:  a Fortran namelist called _&parameters_ (general information about the desired objective analysis), a Fortran namelist called _&fields_ (information specific to individual data fields), and a list of sweep-file names.  These sections of the _oban.nml_ file are described in more detail below.
 
 = &parameters =
 
 * required parameters *
 
 {{{
-   nx                           ! no. of grid points in x direction
-   ny                           ! no. of grid points in y direction
-   nz                             ! no. of grid points in z direction (required for 3D analysis, not needed for 2D analysis)
+nx                  ! number of grid points in x direction
+ny                  ! number of grid points in y direction
+nz                  ! number of grid points in z direction (required for 3D analysis, not required for 2D analysis)
+
+xmin                ! x coordinate (km) of west grid edge, relative to the origin given by glat, glon, galt
+ymin                ! y coordinate (km) of south grid edge, relative to the origin given by glat, glon, galt
+zmin                ! z coordinate (km) of grid bottom, relative to galt (required for 3D analysis, not required for 2D analysis)
+
 }}}
 
 * optional parameters *
@@ -24,9 +29,7 @@ The _oban.nml_ file must include three sections:  _&parameters_ (general informa
 
 {{{
                                       !
-   xmin = -80.0,                      ! coordinates of lower southwest corner (in km)
-   ymin = -80.0,                      !     of analysis grid relative to the 
-   zmin = 0.0,                        !     origin given by glat, glon, galt
+
                                       !
    dx = 2.0,                          ! grid spacing in x direction (km)
    dy = 2.0,                          ! grid spacing in y direction (km)
@@ -160,12 +163,9 @@ The _oban.nml_ file must include three sections:  _&parameters_ (general informa
                                       !         Threshold Vr on dBZ:  post_oban_filter_flag = -1, Vr=missing for dBZ > 70.
 }}}
 
-= sweep-file list =
+= Sweep File List =
 
-The end of the _oban.nml_ file is the list of radar-data sweep files to be analyzed.  A line with 6 "=" signs must precede the list of sweep files (see examples below).  Sweep file names can be listed explicitly (example 1 below), and the number of file names must correspond to nswp in the parameters section.  Alternatively (example 2), if nswp=-1, then a single path name is specified, and all files in the directory that match the specified name are read as input.
-
-======= DO NOT EDIT THIS LINE -> MUST START WITH 6 "=" for the oban formatted I/O to find the start of input files
-'./koun_foray/ncswp_*'
+The end of the _oban.nml_ file is the list of radar-data sweep files to be analyzed.  A line with 6 "=" signs must precede the list of sweep files (see examples below).  Sweep file names can be listed explicitly (example 1 below), and the number of file names must correspond to _nswp_ in the parameters section.  Alternatively (example 2), if _nswp_=-1, then a single path name is specified, and all files in the directory that match the specified name are read as input.
 
 = Example 1 =
 
