@@ -1,6 +1,5 @@
-#summary README instructions from the *test_data.tar* download
 
-This is test data to see if your compilation of the opaws software is working correctly.
+==This is test data to see if your compilation of the opaws software is working correctly.==
 ------
 
 Written by Lou Wicker, March 2011
