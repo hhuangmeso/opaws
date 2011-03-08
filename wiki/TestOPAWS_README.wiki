@@ -1,6 +1,6 @@
 #instructions for how to check to see if the software is working
 
-===These are instructions to check and see if your compilation of the opaws software is working correctly.===
+These are instructions to check and see if your compilation of the opaws software is working correctly.
 ------
 
 Written by Lou Wicker, March 2011
