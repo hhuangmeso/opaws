@@ -1,4 +1,4 @@
-#summary instructions for how to check to see if the software is working
+#summary instructions for testing software using test_opaws.tar download
 
 These are instructions to check and see if your compilation of the opaws software is working correctly.
 ------
